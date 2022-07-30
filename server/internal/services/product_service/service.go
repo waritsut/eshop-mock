@@ -8,6 +8,7 @@ import (
 
 type Service interface {
 	Create(createData models.Product) (model models.Product, err error)
+	Delete(id int) error
 	Detail(searchData SearchDetailData, preloadOpt ...Preload) (info Product, err error)
 	GetFirstOrCreateUpdate(whereData WhereGetFirstOrCreateData, attrsData models.Product) (info models.Product, err error)
 	Paginate(searchData SearchPageData, preloadOpt ...Preload) (info []Product,
