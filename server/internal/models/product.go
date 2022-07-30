@@ -1,8 +1,9 @@
 package models
 
 import (
-	"database/sql"
 	"time"
+
+	"gorm.io/gorm"
 )
 
 type Product struct {
@@ -16,7 +17,7 @@ type Product struct {
 	Product_Status_Id int
 	Created_At        time.Time
 	Updated_At        time.Time
-	Deleted_At        sql.NullTime
+	Deleted_At        gorm.DeletedAt
 }
 
 func (Product) TableName() string {

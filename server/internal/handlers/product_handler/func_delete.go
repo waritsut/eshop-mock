@@ -4,7 +4,6 @@ import (
 	"errors"
 	"eshop-mock-api/internal/core"
 	"eshop-mock-api/internal/response"
-	"eshop-mock-api/internal/services/product_service"
 	"net/http"
 	"strconv"
 )
@@ -18,16 +17,7 @@ func (h *Handler) Delete(c core.Context) {
 		return
 	}
 
-	searchData := new(product_service.SearchDetailData)
-	searchData.Id = []int{idConv}
-	info, err := h.productService.Detail(*searchData,
-		product_service.WithCatalog(), product_service.WithProductStatus())
-	if err != nil {
-		response.HandleError(c, err)
-		return
-	}
-
-	err = h.productService.Delete(info.Id)
+	err = h.productService.Delete(idConv)
 	if err != nil {
 		response.HandleError(c, err)
 		return
