@@ -2,7 +2,6 @@ package product_service
 
 import (
 	"eshop-mock-api/internal/struct_templates"
-	"fmt"
 	"math"
 )
 
@@ -51,8 +50,5 @@ func (s *MyService) Paginate(searchData SearchPageData, preloadOpt ...Preload) (
 		Find(&info).Error; err != nil {
 		return info, pagination, err
 	}
-
-	fmt.Println(info)
-
 	return info, pagination, nil
 }
