@@ -1,0 +1,12 @@
+sql("CREATE TABLE products (
+          id SERIAL PRIMARY KEY,
+          name VARCHAR(20) NOT NULL,
+          description  VARCHAR(500),
+          image_url VARCHAR(2048) NOT NULL,
+          price REAL NOT NULL,
+          stock SMALLINT NOT NULL,
+          catalog_id SMALLINT NOT NULL,
+          product_status_id SMALLINT NOT NULL,
+          created_at TIMESTAMP NOT NULL,
+          updated_at TIMESTAMP NOT NULL,
+          deleted_at TIMESTAMP NOT NULL);")
